@@ -1,0 +1,68 @@
+<nav class="bg-gray-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="/" class="text-xl font-bold">MyWebsite</a>
+        </div>
+  
+        <!-- Navbar Links -->
+        <div class="hidden md:flex space-x-4">
+          <a
+            href="/"
+            class="<%= page === '/' ? 'text-yellow-400 font-semibold' : 'hover:text-yellow-400' %>"
+          >Home</a>
+          <a
+            href="/about"
+            class="<%= page === '/about' ? 'text-yellow-400 font-semibold' : 'hover:text-yellow-400' %>"
+          >About</a>
+          <a
+            href="/solutions/projects"
+            class="<%= page === '/solutions/projects' ? 'text-yellow-400 font-semibold' : 'hover:text-yellow-400' %>"
+          >Projects</a>
+          <a
+            href="/contact"
+            class="<%= page === '/contact' ? 'text-yellow-400 font-semibold' : 'hover:text-yellow-400' %>"
+          >Contact</a>
+        </div>
+  
+        <!-- Responsive Menu -->
+        <div class="md:hidden">
+          <button
+            id="menu-button"
+            class="text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          >
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-800 space-y-1 px-2 pt-2 pb-3">
+      <a
+        href="/"
+        class="<%= page === '/' ? 'text-yellow-400 font-semibold block' : 'hover:text-yellow-400 block' %>"
+      >Home</a>
+      <a
+        href="/about"
+        class="<%= page === '/about' ? 'text-yellow-400 font-semibold block' : 'hover:text-yellow-400 block' %>"
+      >About</a>
+      <a
+        href="/solutions/projects"
+        class="<%= page === '/solutions/projects' ? 'text-yellow-400 font-semibold block' : 'hover:text-yellow-400 block' %>"
+      >Projects</a>
+      <a
+        href="/contact"
+        class="<%= page === '/contact' ? 'text-yellow-400 font-semibold block' : 'hover:text-yellow-400 block' %>"
+      >Contact</a>
+    </div>
+  </nav>
+  
+  <script>
+    document.getElementById("menu-button").addEventListener("click", () => {
+      const mobileMenu = document.getElementById("mobile-menu");
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+  

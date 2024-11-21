@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <!-- Include the Navbar Partial -->
+    <%- include('partials/navbar', { page: '/solutions/projects' }) %>
+
+    <!-- Header Section -->
+    <div class="hero bg-base-200 text-center py-10">
+        <h1 class="text-4xl font-bold">Project</h1>
+        <p class="text-lg mt-4">List of the available products </p>
+    </div>
+
+    <!-- Filters Section -->
+    <div class="filters flex justify-center gap-4 my-6">
+        <a class="btn btn-outline-primary" href="/solutions/projects?sector=Industry">Industry</a>
+        <a class="btn btn-outline-primary" href="/solutions/projects?sector=Transportation">Transportation</a>
+        <a class="btn btn-outline-primary" href="/solutions/projects?sector=Energy">Energy</a>
+        <a class="btn btn-outline-primary" href="/solutions/projects?sector=Buildings">Buildings</a>
+    </div>
+
+    <!-- Projects Table -->
+    <div class="container mx-auto px-4">
+        <table class="table table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Sector</th>
+                    <th>Summary</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (projects.length > 0) { %>
+                    <% projects.forEach(project => { %>
+                        <tr>
+                            <td><%= project.title %></td>
+                            <td>
+                                <a class="btn btn-primary" href="/solutions/projects?sector=<%= project.sector %>">
+                                    <%= project.sector %>
+                                </a>
+                            </td>
+                            <td><%= project.summary_short %></td>
+                            <td>
+                                <a class="btn btn-secondary" href="/solutions/projects/<%= project.id %>">
+                                    Details
+                                </a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="4" class="text-center">No projects available.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
